@@ -106,11 +106,16 @@ function buildRequestBody() {
     ],
   };
 }
+
 router.post('/payment', async (req, res) => {
   let request = new paypal.orders.OrdersCreateRequest();
+  
   request.headers['prefer'] = 'return=representation';
+
   let test = buildRequestBody();
+
   request.requestBody(test);
+
   try {
     let response = await client.execute(request);
     console.log(`Order: ${JSON.stringify(response.result, null, '\t')}`);

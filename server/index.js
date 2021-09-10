@@ -12,6 +12,7 @@ const allowedOrigins = [
   'http://127.0.0.1:4000',
 ];
 
+//allow cross origin calls to servers that are in the allowed origin -> security implementation
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -26,10 +27,12 @@ app.use(
     },
   })
 );
+
 const logger = (req, res, next) => {
   console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`);
   next();
 };
+
 app.use(logger);
 app.use(cookieParser());
 app.disable('x-powered-by');
