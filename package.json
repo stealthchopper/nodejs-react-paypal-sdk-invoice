@@ -14,7 +14,7 @@
     "start:client": "cd client && npm start",
     "start:server": "cd server && npm start",
     "start:dev": "npm-run-all -p start:client start:server",
-    "install:dev": "npm i && cd client && npm i && cd ../server && npm i",
+    "install:dev": "npm i --legacy-peer-deps && cd client && npm i --legacy-peer-deps && cd ../server && npm i --legacy-peer-deps",
     "postinstall": "cd server && npm i"
   },
   "dependencies": {
